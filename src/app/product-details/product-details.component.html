@@ -1,0 +1,38 @@
+<main class="detail">
+  <div class="detail--header mt-3 mx-auto">
+    <h4 class="text-center">Welcome to {{ product?.name }} Details</h4>
+  </div>
+  <div class="detail--body mx-auto row">
+    <div class="col-6">
+      <h6 class="d-flex align-items-center">
+        <!-- <span class="material-icons mr-2"> badge </span> -->
+        product name:
+      </h6>
+      <p>{{ product?.name }}</p>
+    </div>
+    <div class="col-6">
+      <h6>product type:</h6>
+      <p>{{ product?.type }}</p>
+    </div>
+    <div class="col-6">
+      <h6>product Location:</h6>
+      <p>{{ product?.location }}</p>
+    </div>
+    <div class="col-6">
+      <h6>product price:</h6>
+      <p>${{ product?.price }}</p>
+    </div>
+    <div class="col-12">
+      <h6>product description:</h6>
+      <p>
+        {{ product?.description }}
+      </p>
+    </div>
+    <div class="col-12">
+      <button class="Button Button--primary">Edit Product</button>
+      <button class="Button Button--danger mx-4" (click)="deleteProduct()">
+        Delete Product
+      </button>
+    </div>
+  </div>
+</main>

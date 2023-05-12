@@ -1,0 +1,14 @@
+<main class="productList">
+  <h4 class="text-center my-4">List of OpenAI Productss</h4>
+
+  <div *ngFor="let product of products" class="list row rounded mb-4">
+    <div class="col-9 d-flex justify-content-start align-items-center">
+      <p class="mb-0">{{ product.name }}</p>
+    </div>
+    <div class="col-3 d-flex justify-content-end align-items-center">
+      <a [routerLink]="product._id" class="Button Button--secondary"
+        >click to view</a
+      >
+    </div>
+  </div>
+</main>

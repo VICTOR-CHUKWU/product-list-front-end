@@ -1,0 +1,25 @@
+.Nav {
+    background: rgb(13, 13, 68);
+    padding: 0.1rem 2rem;
+    color: white;
+    top: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 5px 5px gray;
+
+    &-items {
+        display: flex;
+        align-items: center;
+
+        li {
+            &:not(:last-child){
+                margin: 0 2rem 0 0;
+            }
+        }
+    }
+}

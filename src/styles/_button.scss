@@ -1,0 +1,38 @@
+.Button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  min-width: 9rem;
+  min-height: 2rem;
+  padding: 0.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 1s linear;
+  color: black;
+  font-size: 0.9rem;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  box-shadow: -3px -3px 7px #ffffffb2, 3px 3px 5px rgba(94, 104, 121, 0.945);
+
+  &--danger {
+    background-color: red !important;
+    color: white;
+  }
+  &--secondary {
+    background-color: rgb(230, 224, 224);
+    // color: black;
+  }
+  &--primary {
+    background-color: blue;
+    color: white;
+  }
+
+  &--md {
+    height: 3rem;
+  }
+  &:hover {
+    box-shadow: inset -3px -3px 7px #ffffffb0,
+      inset 3px 3px 5px rgba(94, 104, 121, 0.692);
+  }
+}

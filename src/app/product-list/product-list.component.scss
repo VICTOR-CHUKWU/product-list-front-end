@@ -1,0 +1,14 @@
+.productList {
+    margin: 5rem auto 2rem;
+    width: 90%;
+
+    .list {
+        padding: 0.5rem 1rem;
+        // display: flex;
+        // align-items: center;
+        // justify-content: space-between;
+        background: white;
+        box-shadow: -3px -3px 7px #ffffffb2, 
+                  3px 3px 5px rgba(94, 104, 121, 0.945);
+    }
+}

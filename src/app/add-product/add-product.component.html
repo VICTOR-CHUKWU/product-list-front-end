@@ -1,0 +1,126 @@
+<main class="productNew">
+  <h4 class="text-center mt-5">Create a new product</h4>
+  <form
+    class="form"
+    [formGroup]="appForm"
+    (ngSubmit)="createProduct(appForm, formDirective)"
+    #formDirective="ngForm"
+  >
+    <!-- <input formControlName="name" /> -->
+    <!-- <div class="mb-3"> -->
+    <!-- <label for="name" class="form-label">Product Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        formControlName="name"
+        placeholder="Magic stick"
+      /> -->
+    <mat-form-field appearance="outline" class="d-flex flex-column mb-4">
+      <mat-label>Product Name</mat-label>
+      <input
+        matInput
+        formControlName="name"
+        placeholder="product name"
+        pattern="^\s*[a-zA-Z_0-9]{2,}\s*$"
+      />
+      <div
+        *ngIf="
+          appForm.controls['name'].invalid &&
+          (appForm.controls['name'].dirty || appForm.controls['name'].touched)
+        "
+      >
+        <mat-error *ngIf="appForm.controls['name'].errors"
+          >enter name</mat-error
+        >
+      </div>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="d-flex flex-column w-100 mb-4">
+      <mat-label>Product Category</mat-label>
+      <input
+        matInput
+        formControlName="type"
+        placeholder="electronics"
+        pattern="^\s*[a-zA-Z_0-9]{2,}\s*$"
+      />
+      <div
+        *ngIf="
+          appForm.controls['type'].invalid &&
+          (appForm.controls['type'].dirty || appForm.controls['type'].touched)
+        "
+      >
+        <mat-error *ngIf="appForm.controls['type'].errors"
+          >enter type</mat-error
+        >
+      </div>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="d-flex flex-column mb-4">
+      <mat-label>Product Price</mat-label>
+      <input
+        matInput
+        formControlName="price"
+        placeholder="20000"
+        pattern="^\s*[a-zA-Z_0-9]{2,}\s*$"
+      />
+      <div
+        *ngIf="
+          appForm.controls['price'].invalid &&
+          (appForm.controls['price'].dirty || appForm.controls['price'].touched)
+        "
+      >
+        <mat-error *ngIf="appForm.controls['price'].errors"
+          >enter price</mat-error
+        >
+      </div>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="d-flex flex-column mb-4">
+      <mat-label>Product Location</mat-label>
+      <input
+        matInput
+        formControlName="location"
+        placeholder="Nigeria"
+        pattern="^\s*[a-zA-Z_0-9]{2,}\s*$"
+      />
+      <div
+        *ngIf="
+          appForm.controls['location'].invalid &&
+          (appForm.controls['location'].dirty ||
+            appForm.controls['location'].touched)
+        "
+      >
+        <mat-error *ngIf="appForm.controls['location'].errors"
+          >enter location</mat-error
+        >
+      </div>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="d-flex flex-column mb-4">
+      <mat-label>Product Description</mat-label>
+      <textarea
+        matInput
+        placeholder="Tell us about the product"
+        formControlName="description"
+        rows="4"
+      ></textarea>
+      <div
+        *ngIf="
+          appForm.controls['description'].invalid &&
+          (appForm.controls['description'].dirty ||
+            appForm.controls['description'].touched)
+        "
+      >
+        <mat-error *ngIf="appForm.controls['description'].errors"
+          >enter description</mat-error
+        >
+      </div>
+    </mat-form-field>
+    <button
+      mat-flat-button
+      class="Button Button--primary Button--md"
+      [disabled]="!appForm.touched"
+      type="submit"
+    >
+      Create Product
+    </button>
+    <!-- </div> -->
+  </form>
+</main>
