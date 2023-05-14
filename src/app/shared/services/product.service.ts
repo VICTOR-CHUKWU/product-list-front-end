@@ -48,6 +48,14 @@ export class ProductService {
             .pipe(catchError(handleError));
     }
 
+    editProduct(product: Product) {
+        return this.httpClient
+            .patch(this.baseUrl + `/products/${product._id}`, {
+                ...product,
+            })
+            .pipe(catchError(handleError));
+    }
+
     deleteProduct(id: string) {
         return this.httpClient
             .delete(`${this.baseUrl}/products/${id}`)

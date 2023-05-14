@@ -29,7 +29,11 @@
       </p>
     </div>
     <div class="col-12">
-      <button class="Button Button--primary">Edit Product</button>
+      <a
+        [routerLink]="['/products/new', product?._id]"
+        class="Button Button--primary"
+        >Edit Product</a
+      >
       <button class="Button Button--danger mx-4" (click)="deleteProduct()">
         Delete Product
       </button>

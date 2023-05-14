@@ -18,12 +18,7 @@
       /> -->
     <mat-form-field appearance="outline" class="d-flex flex-column mb-4">
       <mat-label>Product Name</mat-label>
-      <input
-        matInput
-        formControlName="name"
-        placeholder="product name"
-        pattern="^\s*[a-zA-Z_0-9]{2,}\s*$"
-      />
+      <input matInput formControlName="name" placeholder="product name" />
       <div
         *ngIf="
           appForm.controls['name'].invalid &&
@@ -37,12 +32,7 @@
     </mat-form-field>
     <mat-form-field appearance="outline" class="d-flex flex-column w-100 mb-4">
       <mat-label>Product Category</mat-label>
-      <input
-        matInput
-        formControlName="type"
-        placeholder="electronics"
-        pattern="^\s*[a-zA-Z_0-9]{2,}\s*$"
-      />
+      <input matInput formControlName="type" placeholder="electronics" />
       <div
         *ngIf="
           appForm.controls['type'].invalid &&
@@ -56,12 +46,7 @@
     </mat-form-field>
     <mat-form-field appearance="outline" class="d-flex flex-column mb-4">
       <mat-label>Product Price</mat-label>
-      <input
-        matInput
-        formControlName="price"
-        placeholder="20000"
-        pattern="^\s*[a-zA-Z_0-9]{2,}\s*$"
-      />
+      <input matInput formControlName="price" placeholder="20000" />
       <div
         *ngIf="
           appForm.controls['price'].invalid &&
@@ -75,12 +60,7 @@
     </mat-form-field>
     <mat-form-field appearance="outline" class="d-flex flex-column mb-4">
       <mat-label>Product Location</mat-label>
-      <input
-        matInput
-        formControlName="location"
-        placeholder="Nigeria"
-        pattern="^\s*[a-zA-Z_0-9]{2,}\s*$"
-      />
+      <input matInput formControlName="location" placeholder="Nigeria" />
       <div
         *ngIf="
           appForm.controls['location'].invalid &&
@@ -116,10 +96,10 @@
     <button
       mat-flat-button
       class="Button Button--primary Button--md"
-      [disabled]="!appForm.touched"
+      [disabled]="!appForm.valid"
       type="submit"
     >
-      Create Product
+      {{ isEditMode ? "Update Product" : "Create Product" }}
     </button>
     <!-- </div> -->
   </form>

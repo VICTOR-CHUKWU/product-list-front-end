@@ -1,0 +1,69 @@
+<main class="Auth">
+  <h4 class="text-center mt-5">Welcome to OpenFabrics Kindly login</h4>
+  <form
+    class="form"
+    [formGroup]="loginForm"
+    (ngSubmit)="login()"
+    #formDirective="ngForm"
+  >
+    <mat-form-field appearance="outline" class="d-flex flex-column mb-4">
+      <mat-label>email</mat-label>
+      <input
+        matInput
+        formControlName="email"
+        placeholder="email"
+        autocomplete="email"
+        pattern="^\s*(?!\.)[\w.-]+(?<!\.)@\w+((\.|-)\w+)+\s*$"
+        #emailInput
+      />
+      <div
+        *ngIf="
+          loginForm.controls['email'].invalid &&
+          (loginForm.controls['email'].dirty ||
+            loginForm.controls['email'].touched)
+        "
+      >
+        <mat-error *ngIf="loginForm.controls['email'].errors"
+          >enter email</mat-error
+        >
+      </div>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="d-flex flex-column w-100 mb-4">
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        formControlName="password"
+        placeholder="electronics"
+        required
+        minlength="1"
+        autocomplete="current-password"
+        #passwordInput
+      />
+      <div
+        *ngIf="
+          loginForm.controls['password'].invalid &&
+          (loginForm.controls['password'].dirty ||
+            loginForm.controls['password'].touched)
+        "
+      >
+        <mat-error *ngIf="loginForm.controls['password'].errors"
+          >enter password</mat-error
+        >
+      </div>
+    </mat-form-field>
+    <button
+      mat-flat-button
+      class="Button Button--primary Button--md"
+      [disabled]="!loginForm.touched"
+      type="submit"
+    >
+      {{ isLoading ? "Loading..." : "Login" }}
+    </button>
+    <!-- </div> -->
+  </form>
+  <div class="d-flex justify-content-center">
+    <h6>
+      New user? <a class="text-primary" routerLink="/register">Register</a>
+    </h6>
+  </div>
+</main>

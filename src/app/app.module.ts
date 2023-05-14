@@ -1,6 +1,6 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,6 +12,9 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from 'src/enviroment/enviroment';
 import { ToastrModule } from 'ngx-toastr';
+import { HttpInterceptorInterceptor } from './shared/services/http-interceptor.interceptor';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
@@ -20,7 +23,9 @@ import { ToastrModule } from 'ngx-toastr';
     ProductListComponent,
     NavComponent,
     ProductDetailsComponent,
-    AddProductComponent
+    AddProductComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +38,9 @@ import { ToastrModule } from 'ngx-toastr';
   ],
   providers: [
     { provide: 'baseUrl', useValue: environment.baseURL },
+    {
+      provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorInterceptor, multi: true
+    },
   ],
   bootstrap: [AppComponent]
 })

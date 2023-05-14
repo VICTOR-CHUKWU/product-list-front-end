@@ -1,0 +1,83 @@
+<main class="Auth">
+  <h4 class="text-center mt-5">Welcome to OpenFabrics Registration Page</h4>
+  <form
+    class="form"
+    [formGroup]="regForm"
+    (ngSubmit)="register()"
+    #formDirective="ngForm"
+  >
+    <mat-form-field appearance="outline" class="d-flex flex-column mb-4">
+      <mat-label> Name</mat-label>
+      <input matInput formControlName="name" placeholder=" name" />
+      <div
+        *ngIf="
+          regForm.controls['name'].invalid &&
+          (regForm.controls['name'].dirty || regForm.controls['name'].touched)
+        "
+      >
+        <mat-error *ngIf="regForm.controls['name'].errors"
+          >enter name</mat-error
+        >
+      </div>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="d-flex flex-column mb-4">
+      <mat-label>email</mat-label>
+      <input
+        matInput
+        formControlName="email"
+        placeholder="email"
+        autocomplete="email"
+        pattern="^\s*(?!\.)[\w.-]+(?<!\.)@\w+((\.|-)\w+)+\s*$"
+        #emailInput
+      />
+      <div
+        *ngIf="
+          regForm.controls['email'].invalid &&
+          (regForm.controls['email'].dirty || regForm.controls['email'].touched)
+        "
+      >
+        <mat-error *ngIf="regForm.controls['email'].errors"
+          >enter email</mat-error
+        >
+      </div>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="d-flex flex-column w-100 mb-4">
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        formControlName="password"
+        placeholder="electronics"
+        required
+        minlength="1"
+        autocomplete="current-password"
+        #passwordInput
+      />
+      <div
+        *ngIf="
+          regForm.controls['password'].invalid &&
+          (regForm.controls['password'].dirty ||
+            regForm.controls['password'].touched)
+        "
+      >
+        <mat-error *ngIf="regForm.controls['password'].errors"
+          >enter password</mat-error
+        >
+      </div>
+    </mat-form-field>
+    <button
+      mat-flat-button
+      class="Button Button--primary Button--md"
+      [disabled]="!regForm.touched"
+      type="submit"
+    >
+      {{ isLoading ? "Loading..." : "Register" }}
+    </button>
+    <!-- </div> -->
+  </form>
+  <div class="d-flex justify-content-center">
+    <h6>
+      already have an account?
+      <a class="text-primary" routerLink="/login">login</a>
+    </h6>
+  </div>
+</main>

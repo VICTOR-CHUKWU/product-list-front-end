@@ -5,6 +5,7 @@ export interface Product {
     location: string;
     description: string;
     _id: string;
+    user_id?: string;
     __v?: any
 
 }
