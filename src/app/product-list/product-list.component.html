@@ -3,7 +3,7 @@
 
   <div *ngFor="let product of products" class="list row rounded mb-4">
     <div class="col-9 d-flex justify-content-start align-items-center">
-      <p class="mb-0">{{ product.name }}</p>
+      <p class="mb-0 text-truncate list--p">{{ product.name }}</p>
     </div>
     <div class="col-3 d-flex justify-content-end align-items-center">
       <a [routerLink]="product._id" class="Button Button--secondary"

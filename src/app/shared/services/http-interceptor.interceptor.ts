@@ -48,6 +48,7 @@ export class HttpInterceptorInterceptor implements HttpInterceptor {
     // Implement your logout logic here
     // For example, remove the token from local storage and navigate to the login page
     localStorage.removeItem('token');
+    localStorage.removeItem('openFabricUser');
     this.router.navigate(['/register']);
   }
 

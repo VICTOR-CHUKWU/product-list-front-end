@@ -53,7 +53,7 @@ export class RegisterComponent {
 
           if (r.success) {
             localStorage.setItem('token', r.token);
-            localStorage.setItem('openAiUser', JSON.stringify(r.user));
+            localStorage.setItem('openFabricUser', JSON.stringify(r.user));
             this.toast.success(r.message);
             this.router.navigate(['/'])
           }

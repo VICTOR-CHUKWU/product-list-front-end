@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Product } from '../shared/interface';
+import { Product, User } from '../shared/interface';
 import { ProductService } from '../shared/services/product.service';
 import { ToastrService } from 'ngx-toastr';
 
@@ -12,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 export class ProductDetailsComponent {
   product_id: string = ''
   product: Product | null = null;
+  User: User | null = null;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -30,6 +31,9 @@ export class ProductDetailsComponent {
     this.productService
       .getProduct(this.product_id)
       .subscribe((res) => this.product = res);
+
+    const user = JSON.parse(localStorage.getItem('openFabricUser') as string)
+    this.User = user
   }
 
   deleteProduct() {
@@ -38,10 +42,13 @@ export class ProductDetailsComponent {
         this.toast.success(r.message);
         this.router.navigateByUrl('/');
         return;
+      } else {
+        this.toast.error(
+          `Could not delete product: "${this.product_id}"`);
       }
-      this.toast.error(
-        `Could not delete product: "${this.product_id}"`);
-    });
+
+    }),
+      () => (this.toast.error('could not delete Product'))
   }
 
 }

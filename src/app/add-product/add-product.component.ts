@@ -62,7 +62,7 @@ export class AddProductComponent {
 
 
   createProduct(form: FormGroup, formDirective: FormGroupDirective) {
-    const user = JSON.parse(localStorage.getItem('openAiUser') as string)
+    const user = JSON.parse(localStorage.getItem('openFabricUser') as string)
     if (!this.isEditMode) {
       this.productService
         .createProduct({

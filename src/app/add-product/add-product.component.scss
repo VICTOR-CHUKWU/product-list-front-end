@@ -10,4 +10,13 @@
         box-shadow: -3px -3px 7px #ffffffb2, 
         3px 3px 5px rgba(94, 104, 121, 0.945);
     }
+
+    @media only screen and (max-width: 768px) {
+        width: 95%;
+
+        .form {
+            width: 100%;
+           
+        }
+      }
 }
