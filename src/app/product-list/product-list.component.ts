@@ -11,6 +11,7 @@ import { ProductService } from '../shared/services/product.service';
 })
 export class ProductListComponent {
   products: Product[] = []
+  loading: boolean = true;
 
   constructor(
     public productService: ProductService
@@ -19,6 +20,12 @@ export class ProductListComponent {
   ngOnInit(): void {
     this.productService
       .getAllProducts()
-      .subscribe((res) => (this.products = res));
+      .subscribe(
+        (res) => {
+          this.products = res
+          this.loading = false
+        }),
+      () => (this.loading = false);
+
   }
 }

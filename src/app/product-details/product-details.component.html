@@ -1,45 +1,54 @@
 <main class="detail">
-  <div class="detail--header mt-3 mx-auto">
-    <h4 class="text-center">{{ product?.name }} Details</h4>
+  <div *ngIf="!product && loading">
+    <h6 class="text-center">Loading...</h6>
   </div>
-  <div class="detail--body mx-auto row">
-    <div class="col-12 col-md-6">
-      <h6 class="d-flex align-items-center">
-        <!-- <span class="material-icons mr-2"> badge </span> -->
-        product name:
-      </h6>
-      <p>{{ product?.name }}</p>
-    </div>
-    <div class="col-12 col-md-6">
-      <h6>product type:</h6>
-      <p>{{ product?.type }}</p>
-    </div>
-    <div class="col-12 col-md-6">
-      <h6>product Location:</h6>
-      <p>{{ product?.location }}</p>
-    </div>
-    <div class="col-12 col-md-6">
-      <h6>product price:</h6>
-      <p>${{ product?.price }}</p>
-    </div>
-    <div class="col-12">
-      <h6>product description:</h6>
-      <p>{{ product?.description }}</p>
-    </div>
-    <div class="col-12">
-      <a
-        *ngIf="User?._id === product?.user_id"
-        [routerLink]="['/products/new', product?._id]"
-        class="Button Button--primary"
-        >Edit Product</a
-      >
-      <button
-        *ngIf="User?._id == product?.user_id"
-        class="Button Button--danger mx-1 mx-md-4"
-        (click)="deleteProduct()"
-      >
-        Delete Product
-      </button>
-    </div>
+
+  <div *ngIf="!product && !loading">
+    <h6 class="text-center">No Product</h6>
   </div>
+  <span *ngIf="product && !loading">
+    <div class="detail--header mt-3 mx-auto">
+      <h4 class="text-center">{{ product?.name }} Details</h4>
+    </div>
+    <div class="detail--body mx-auto row">
+      <div class="col-12 col-md-6">
+        <h6 class="d-flex align-items-center">
+          <!-- <span class="material-icons mr-2"> badge </span> -->
+          product name:
+        </h6>
+        <p>{{ product?.name }}</p>
+      </div>
+      <div class="col-12 col-md-6">
+        <h6>product type:</h6>
+        <p>{{ product?.type }}</p>
+      </div>
+      <div class="col-12 col-md-6">
+        <h6>product Location:</h6>
+        <p>{{ product?.location }}</p>
+      </div>
+      <div class="col-12 col-md-6">
+        <h6>product price:</h6>
+        <p>${{ product?.price }}</p>
+      </div>
+      <div class="col-12">
+        <h6>product description:</h6>
+        <p>{{ product?.description }}</p>
+      </div>
+      <div class="col-12">
+        <a
+          *ngIf="User?._id === product?.user_id"
+          [routerLink]="['/products/new', product?._id]"
+          class="Button Button--primary"
+          >Edit Product</a
+        >
+        <button
+          *ngIf="User?._id == product?.user_id"
+          class="Button Button--danger mx-1 mx-md-4"
+          (click)="deleteProduct()"
+        >
+          Delete Product
+        </button>
+      </div>
+    </div>
+  </span>
 </main>

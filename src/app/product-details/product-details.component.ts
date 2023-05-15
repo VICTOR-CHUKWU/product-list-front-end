@@ -13,6 +13,7 @@ export class ProductDetailsComponent {
   product_id: string = ''
   product: Product | null = null;
   User: User | null = null;
+  loading: boolean = true;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -30,7 +31,12 @@ export class ProductDetailsComponent {
   ngOnInit(): void {
     this.productService
       .getProduct(this.product_id)
-      .subscribe((res) => this.product = res);
+      .subscribe(
+        (res) => {
+          this.product = res
+          this.loading = false
+        }),
+      () => (this.loading = false);
 
     const user = JSON.parse(localStorage.getItem('openFabricUser') as string)
     this.User = user
