@@ -29,7 +29,7 @@ export class LoginComponent {
     password: ['', Validators.required],
   });
   passwordIsVisible = false;
-  returnUrl: string = '';
+  returnUrl = '';
   isLoading = false;
 
   ngOnInit() {

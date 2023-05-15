@@ -11,7 +11,7 @@ import { ProductService } from '../shared/services/product.service';
 })
 export class ProductListComponent {
   products: Product[] = []
-  loading: boolean = true;
+  loading = true;
 
   constructor(
     public productService: ProductService

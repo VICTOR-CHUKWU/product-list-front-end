@@ -10,10 +10,10 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./product-details.component.scss']
 })
 export class ProductDetailsComponent {
-  product_id: string = ''
+  product_id = ''
   product: Product | null = null;
   User: User | null = null;
-  loading: boolean = true;
+  loading = true;
 
   constructor(
     private activatedRoute: ActivatedRoute,

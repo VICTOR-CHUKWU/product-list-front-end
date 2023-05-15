@@ -42,7 +42,7 @@
           >Edit Product</a
         >
         <button
-          *ngIf="User?._id == product?.user_id"
+          *ngIf="User?._id === product?.user_id"
           class="Button Button--danger mx-1 mx-md-4"
           (click)="deleteProduct()"
         >

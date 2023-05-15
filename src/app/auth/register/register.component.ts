@@ -26,7 +26,7 @@ export class RegisterComponent {
     password: ['', Validators.required],
   });
   passwordIsVisible = false;
-  returnUrl: string = '';
+  returnUrl = '';
   isLoading = false;
 
 

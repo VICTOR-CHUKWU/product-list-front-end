@@ -19,9 +19,9 @@ import { DefaultResponse, Product } from '../shared/interface';
   styleUrls: ['./add-product.component.scss'],
 })
 export class AddProductComponent {
-  isEditMode: boolean = false;
+  isEditMode = false;
   product: Product | null = null;
-  product_id: string = '';
+  product_id = '';
 
   appForm = this.fb.group({
     name: ['', Validators.required],
