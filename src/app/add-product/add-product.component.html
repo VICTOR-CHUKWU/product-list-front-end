@@ -1,5 +1,7 @@
 <main class="productNew">
-  <h4 class="text-center mt-5">Create a new product</h4>
+  <h4 class="text-center mt-5">
+    {{ isEditMode ? "Update Product" : "Create a new product" }}
+  </h4>
   <form
     class="form"
     [formGroup]="appForm"
