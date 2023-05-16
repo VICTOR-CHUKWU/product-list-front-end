@@ -29,16 +29,19 @@ export class RegisterComponent {
   returnUrl = '';
   isLoading = false;
 
-
   register() {
-    const { email: _email, password: _password, name: _name } = this.regForm.value;
+    const {
+      email: _email,
+      password: _password,
+      name: _name,
+    } = this.regForm.value;
     let email = '';
     let password = '';
-    let name = ''
+    let name = '';
     if (_email && _password && _name) {
       email = _email.trim();
       password = _password.trim();
-      name = _name
+      name = _name;
     }
 
     this.isLoading = true;
@@ -47,20 +50,18 @@ export class RegisterComponent {
     this.userAPi
       .RegisterUser({ email, password, name })
       .pipe(take(1))
-      .subscribe(
-        (r: any) => {
-          this.isLoading = false;
+      .subscribe((r: any) => {
+        this.isLoading = false;
 
-          if (r.success) {
-            localStorage.setItem('token', r.token);
-            localStorage.setItem('openFabricUser', JSON.stringify(r.user));
-            this.toast.success(r.message);
-            this.router.navigate(['/'])
-          }
-
-          return
+        if (r.success) {
+          localStorage.setItem('token', r.token);
+          localStorage.setItem('openFabricUser', JSON.stringify(r.user));
+          this.toast.success(r.message);
+          this.router.navigate(['/']);
         }
-        // () => (this.isLoading = false)
-      );
+
+        return;
+      }),
+      () => (this.isLoading = false);
   }
 }
